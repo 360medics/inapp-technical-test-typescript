@@ -1,30 +1,79 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <font-awesome-icon
+      size="lg"
+      :class="{ active: !isHomepage }"
+      :icon="['fas', 'circle-chevron-left']"
+      @click="back()"
+    />
+    <router-link to="/"><img src="@/assets/logo.png" /></router-link>
+    <font-awesome-icon
+      class="close"
+      size="lg"
+      :icon="['fas', 'circle-xmark']"
+    />
   </nav>
   <router-view />
 </template>
 
+<script lang="ts">
+import { useRoute, useRouter } from "vue-router";
+export default {
+  setup() {
+    const router = useRouter();
+    const currentRoute = useRoute();
+
+    const isHomepage = currentRoute.path === "/";
+
+    return {
+      back() {
+        isHomepage ? null : router.back();
+      },
+      isHomepage,
+    };
+  },
+};
+</script>
+
 <style lang="scss">
+@import url("@/assets/reset.scss");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100vh;
 }
 
 nav {
-  padding: 30px;
+  height: 4rem;
+  padding: 0 0.5rem;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    &.router-link-exact-active {
-      color: #42b983;
+  background-color: white;
+  box-shadow: 0px 1px 1px 1px #060d2c33;
+  border-radius: 0 0 1rem 1rem;
+  position: sticky;
+  top: 0;
+
+  img {
+    height: 3rem;
+  }
+
+  svg {
+    color: #e4e6e8;
+
+    &.active {
+      color: #58a4b0;
+    }
+
+    &.close {
+      color: #daa49a;
     }
   }
+}
+
+.container {
+  height: 100vh;
 }
 </style>
