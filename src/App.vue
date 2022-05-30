@@ -17,17 +17,25 @@
 </template>
 
 <script lang="ts">
+import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 export default {
   setup() {
     const router = useRouter();
     const currentRoute = useRoute();
 
-    const isHomepage = currentRoute.path === "/";
+    const isHomepage = ref(currentRoute.path === "/");
+
+    watch(
+      () => currentRoute.path,
+      (newPath) => {
+        isHomepage.value = newPath === "/";
+      }
+    );
 
     return {
       back() {
-        isHomepage ? null : router.back();
+        isHomepage.value ? null : router.back();
       },
       isHomepage,
     };
