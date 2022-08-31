@@ -80,5 +80,4 @@ As a user, I want to be able to mark an article as liked. I want to be able to s
 
 # Support
 You can ask for help in cases you are stuck or have a question.
-
-[Pascal Legroux](mailto:pascal.legroux@360medics.com) is the technical lead of this project.
+You can join 360 tech team [here](mailto:tech@360medics.com)
