@@ -8,6 +8,25 @@ This project has been built with [Vue.js 3](https://vuejs.org/). It uses [Vuex](
 - [Node.js](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 
+## Clone the repo
+You have to clone this repo localy and set remote url origin to a new repo from your account. 
+```
+git clone git@github.com:360medics/inapp-technical-test-typescript.git
+````
+then create a new repo from your github account
+
+![alt text](https://doc.360medics.com/assets/clients/charles/gh1.png)
+![alt text](https://doc.360medics.com/assets/clients/charles/gh2.png)
+
+then set new url origin
+```
+git remote set-url origin git@github.com:<user_account>/<repo_name>.git
+```
+and finally push master
+```
+git push
+```
+
 ## Install Dependencies
 Run the following command in your terminal:
 ```
